@@ -145,18 +145,27 @@ JOIN car ON customer.id = car.customer_id ;
 
 
 INSERT INTO service(service_type, rate)
-VALUES ('oil change', 39.99)
+VALUES ('oil change', 39.99);
 
 INSERT INTO service_ticket (car_vin, customer_id, service_id, notes, date_completed)
 VALUES ('RT3SEVL085W8WM76J', 3, 1, 'Oil drained and replaces. Breaks checked. Good to go.', '03/24/2024');
 
-SELECT * FROM service_ticket
+INSERT INTO service_mechanic(service_id, ticket_id, employee_id, hours, note)
+VALUES (1, 3, 2, 1,'completed oil change');
+
+INSERT INTO service(service_type, rate)
+VALUES ('tire rotation and alignment', 99.99);
+
+INSERT INTO service_ticket (car_vin, customer_id, service_id, notes, date_completed)
+VALUES ('4M371SNZ9YDCZPV6R', 6, 2, 'passenger side showing excessive wear', '03/24/2024');
 
 
 
 
 INSERT INTO service_mechanic(service_id, ticket_id, employee_id, hours, note)
-VALUES (1, 3, 2, 1,'completed oil change');
+VALUES (2, 4, 6, 2,'passenger side showing excessive wear');
+
+
 
 SELECT * FROM service_mechanic sm 
 
