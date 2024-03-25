@@ -1,0 +1,17 @@
+from faker import Faker
+from faker_vehicle import VehicleProvider
+
+fake = Faker()
+fake.add_provider(VehicleProvider)
+vin = fake.vin()
+vehicle_1 = fake.vehicle_year_make_model()
+color = fake.color_name()
+vehicle_1 = vehicle_1.split()
+print(vin, vehicle_1, color)
+
+print(f"CALL add_car('{vin}', {vehicle_1[0]}, '{vehicle_1[1]}', '{vehicle_1[2]}', '{color}', TRUE, NULL, NULL)")
+
+
+#For 2 names in model 
+#  print(f"CALL add_car({vin}, {vehicle_1[0]}, {vehicle_1[1]}, {vehicle_1[2]}{vehicle_1[3]}, {color})")
+
